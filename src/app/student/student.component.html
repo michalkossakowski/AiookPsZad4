@@ -1,0 +1,27 @@
+<h2>{{tytul_listy}}</h2>
+
+
+<ol>
+    @for (student of listaStudent; track $index) 
+    {
+        <li (click)='selected = student'>{{ student.Imie }} {{ student.Nazwisko }}</li>
+        @if(selected === student){
+            wiek: {{student.Wiek}}
+            <br>
+            oceny:
+                @for (ocena of student.oceny; track ocena) 
+                {
+                    <a [style.color]="ocena==2 ? 'red':'black'">{{ocena}} </a>
+                } 
+                @empty 
+                {
+                    <a>No items...</a>
+                }
+        }
+    } 
+    @empty 
+    {
+        <li>No items...</li>
+    }
+</ol>
+
