@@ -27,6 +27,15 @@
     }
 </ol>
 
+<h4>
+    Na liście {{listaStudent.length | i18nPlural: {
+        '=0':' nie ma żadnych studentów',
+        '=1': 'jest jeden student',
+        'other':'jest # studentów'
+        } }}
+</h4>
+
+
 <button (click)="AddClick()" style="margin-right: 20px;">Dodaj studenta</button>
 @if(selected!=null){
     <button (click)="EditClick()">Edytuj studenta</button>
