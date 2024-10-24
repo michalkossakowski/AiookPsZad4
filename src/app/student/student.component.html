@@ -11,7 +11,7 @@
             oceny:
                 @for (ocena of student.oceny; track ocena) 
                 {
-                    <a [style.color]="ocena==2 ? 'red':'black'">{{ocena}} </a>
+                    <br><a [style.color]="ocena==2 ? 'red':'black'">{{ocena | number : '1.1-1'}} </a>
                 } 
                 @empty 
                 {
@@ -25,3 +25,8 @@
     }
 </ol>
 
+<button (click)="AddClick()">Add Student</button>
+
+@if (addShowing) {
+    <app-add-student  (studentAdded)="StudentAddedInChild($event)"/>
+}
