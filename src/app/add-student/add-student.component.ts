@@ -15,7 +15,7 @@ export class AddStudentComponent {
   public wiek!:number;
   @Output() studentAdded: EventEmitter<Student> = new EventEmitter();
 
-  AddStudent():void{
+  AddNewStudent():void{
     let newStudent = new Student(this.imie,this.nazwisko,this.wiek,[])
     this.studentAdded.emit(newStudent);
   }

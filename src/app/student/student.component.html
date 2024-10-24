@@ -27,6 +27,16 @@
 
 <button (click)="AddClick()">Add Student</button>
 
+@if(selected!=null){
+    <button (click)="EditClick()">Edit Student</button>
+}
+
+
 @if (addShowing) {
     <app-add-student  (studentAdded)="StudentAddedInChild($event)"/>
 }
+
+@if (editShowing) {
+    <app-edit-student [selectedStudent]="selected" (studentEdited)="StudentEditedInChild($event)"/>
+}
+
