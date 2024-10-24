@@ -43,8 +43,7 @@ export class StudentComponent {
     this.addShowing = false;
   }
 
-  StudentEditedInChild(editedStudent: Student){
-    this.listaStudent.push(editedStudent);
+  StudentEditedInChild(){
     this.editShowing = false;
   }
 }

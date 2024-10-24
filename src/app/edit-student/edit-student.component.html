@@ -1,4 +1,4 @@
-<p>Edit student:</p>
+<h3>Edytuj studenta:</h3>
 
 <label>Imie:</label> <br>
 <input [(ngModel)]="editedImie"/> <br>
@@ -8,10 +8,11 @@
 
 <label>Wiek:</label><br>
 <input type="number" [(ngModel)]="editedWiek" /><br>
-
+<button (click)="SaveEditedStudent()">Zapisz</button><br>
+<br>
 <label>Ocena do dodania:</label><br>
 <input type="number" [(ngModel)]="gradeToAdd" />
-<button (click)="AddGrade()">Dodaj ocene</button><br>
+<button (click)="AddGrade()">Dodaj ocenę</button>
 
 
-<button (click)="SaveEditedStudent()">Zapisz</button>
+

@@ -10,17 +10,25 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './edit-student.component.css'
 })
 export class EditStudentComponent {
-  editedImie: string | undefined;
-  editedNazwisko: string | undefined;
-  editedWiek: number | undefined;
+  editedImie!: string;
+  editedNazwisko!: string ;
+  editedWiek!: number ;
   gradeToAdd!: number;
+  @Output() studentEdited: EventEmitter<Student> = new EventEmitter();
 
+  private _selectedStudent!:Student;
   @Input() set selectedStudent(selected:Student) {
+    this._selectedStudent = selected;
     this.editedImie = selected.imie
     this.editedNazwisko = selected.nazwisko
     this.editedWiek = selected.wiek
   }
-  @Output() studentEdited: EventEmitter<Student> = new EventEmitter();
+  get selectedStudent(): Student{
+      this._selectedStudent.imie = this.editedImie;
+      this._selectedStudent.nazwisko = this.editedNazwisko;
+      this._selectedStudent.wiek = this.editedWiek;
+      return this._selectedStudent;
+  }
 
   SaveEditedStudent():void{
     this.studentEdited.emit(this.selectedStudent);
@@ -28,5 +36,6 @@ export class EditStudentComponent {
 
   AddGrade():void{
     this.selectedStudent.DodajOcene(this.gradeToAdd);
+    this.gradeToAdd = 0;
   }
 }
