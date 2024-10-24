@@ -1,27 +1,49 @@
 <h2>{{tytul_listy}}</h2>
 
-
 <ol>
     @for (student of listaStudent; track $index) 
     {
-        <li (click)='selected = student'>{{ student.Imie }} {{ student.Nazwisko }}</li>
+        <b><li [style.color]="selected==student ? 'blue':'black'" 
+            (click)='selected = student; editShowing = false;'>
+            {{ student.Imie }} {{ student.Nazwisko }} 
+        </li></b>
         @if(selected === student){
             wiek: {{student.Wiek}}
             <br>
             oceny:
-                @for (ocena of student.oceny; track ocena) 
-                {
-                    <a [style.color]="ocena==2 ? 'red':'black'">{{ocena}} </a>
-                } 
-                @empty 
-                {
-                    <a>No items...</a>
-                }
+            @for (ocena of student.oceny; track ocena) 
+            {
+                <a [style.color]="ocena==2 ? 'red':'black'" style="margin-right: 10px;">{{ocena | number : '1.1-1'}} </a>
+            } 
+            @empty 
+            {
+                <a>Brak ocen</a>
+            }
         }
     } 
     @empty 
     {
-        <li>No items...</li>
+        <li>Brak studentów</li>
     }
 </ol>
 
+<h4>
+    Na liście {{listaStudent.length | i18nPlural: {
+        '=0':' nie ma żadnych studentów',
+        '=1': 'jest jeden student',
+        'other':'jest # studentów'
+        } }}
+</h4>
+
+
+<button (click)="AddClick()" style="margin-right: 20px;">Dodaj studenta</button>
+@if(selected!=null){
+    <button (click)="EditClick()">Edytuj studenta</button>
+}
+
+@if (addShowing) {
+    <app-add-student  (studentAdded)="StudentAddedInChild($event)"/>
+}
+@if (editShowing) {
+    <app-edit-student [selectedStudent]="selected" (studentEdited)="StudentEditedInChild()"/>
+}

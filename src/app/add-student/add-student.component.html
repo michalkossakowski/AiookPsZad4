@@ -1,0 +1,12 @@
+<h3>Dodaj nowego studenta:</h3>
+
+<label>Imie:</label> <br>
+<input [(ngModel)]="imie"/> <br>
+
+<label>Nazwisko:</label> <br>
+<input [(ngModel)]="nazwisko" /> <br>
+
+<label>Wiek:</label><br>
+<input type="number" [(ngModel)]="wiek" /><br>
+
+<button (click)="AddNewStudent()">Dodaj studenta</button>
