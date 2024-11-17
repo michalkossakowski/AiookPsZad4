@@ -1,0 +1,34 @@
+{
+    "students": [
+      {
+        "imie": "Michal",
+        "nazwisko": "Kossakowski",
+        "wiek": 22,
+        "oceny": [5, 4, 3, 2, 4]
+      },
+      {
+        "imie": "Ichal",
+        "nazwisko": "Ossakowski",
+        "wiek": 21,
+        "oceny": [5, 5, 5, 4, 4]
+      },
+      {
+        "imie": "Chal",
+        "nazwisko": "Ssakowski",
+        "wiek": 20,
+        "oceny": [1, 2, 3, 2, 4]
+      },
+      {
+        "imie": "Al",
+        "nazwisko": "Akowski",
+        "wiek": 19,
+        "oceny": [2, 3, 5, 2, 4]
+      },
+      {
+        "imie": "Kichał",
+        "nazwisko": "Mossakowski",
+        "wiek": 18,
+        "oceny": [2, 2, 2, 2, 5]
+      }
+    ]
+}

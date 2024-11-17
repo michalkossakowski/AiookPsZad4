@@ -5,10 +5,10 @@
     {
         <b><li [style.color]="selected==student ? 'blue':'black'" 
             (click)='selected = student; editShowing = false;'>
-            {{ student.Imie }} {{ student.Nazwisko }} 
+            {{ student.imie }} {{ student.nazwisko }} 
         </li></b>
         @if(selected === student){
-            wiek: {{student.Wiek}}
+            wiek: {{student.wiek}}
             <br>
             oceny:
             @for (ocena of student.oceny; track ocena) 
@@ -36,7 +36,7 @@
 </h4>
 
 
-<button (click)="AddClick()" style="margin-right: 20px;">Dodaj studenta</button>
+<!-- <button (click)="AddClick()" style="margin-right: 20px;">Dodaj studenta</button>
 @if(selected!=null){
     <button (click)="EditClick()">Edytuj studenta</button>
 }
@@ -46,4 +46,4 @@
 }
 @if (editShowing) {
     <app-edit-student [selectedStudent]="selected" (studentEdited)="StudentEditedInChild()"/>
-}
+} -->
